@@ -14,7 +14,7 @@ defmodule Backend.Cars.Car do
   @doc false
   def changeset(car, attrs) do
     car
-    |> cast(attrs, [:model, :about, :image_url, :maker])
+    |> cast(attrs, [:model, :about, :image_url])
     |> validate_required([:model, :image_url])
   end
 end
