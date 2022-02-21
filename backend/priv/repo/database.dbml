@@ -1,0 +1,16 @@
+Table makers {
+  id int [pk, increment]
+  name varchar(100)
+  inserted_at timestamp
+  updated_at timestamp
+}
+
+Table cars {
+  id int [pk, increment]
+  maker_id int [ref: > makers.id] // # one maker -> * cars
+  model varchar(100)
+  about varchar(100)
+  image_url varchar
+  inserted_at timestamp
+  updated_at timestamp
+}
