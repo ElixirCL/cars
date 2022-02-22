@@ -8,8 +8,6 @@ defmodule Frontend.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      Frontend.Repo,
       # Start the Telemetry supervisor
       FrontendWeb.Telemetry,
       # Start the PubSub system

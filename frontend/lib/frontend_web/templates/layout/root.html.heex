@@ -4,27 +4,72 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <%= csrf_meta_tag() %>
     <%= live_title_tag assigns[:page_title] || "Frontend", suffix: " · Phoenix Framework" %>
+
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+	
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+
+    <style>
+        .work-sans {
+            font-family: 'Work Sans', sans-serif;
+        }
+                
+        #menu-toggle:checked + #menu {
+            display: block;
+        }
+        
+        .hover\:grow {
+            transition: all 0.3s;
+            transform: scale(1);
+        }
+        
+        .hover\:grow:hover {
+            transform: scale(1.02);
+        }
+        
+        .carousel-open:checked + .carousel-item {
+            position: static;
+            opacity: 100;
+        }
+        
+        .carousel-item {
+            -webkit-transition: opacity 0.6s ease-out;
+            transition: opacity 0.6s ease-out;
+        }
+        
+        #carousel-1:checked ~ .control-1,
+        #carousel-2:checked ~ .control-2,
+        #carousel-3:checked ~ .control-3 {
+            display: block;
+        }
+        
+        .carousel-indicators {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            bottom: 2%;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+        #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+        #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+            color: #000;
+            /*Set to match the Tailwind colour you want the active one to be */
+        }
+    </style>
+
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
-  <body>
-    <header>
-      <section class="container">
-        <nav>
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
+  <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
     <%= @inner_content %>
   </body>
 </html>

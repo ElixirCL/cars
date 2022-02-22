@@ -22,7 +22,6 @@ defmodule FrontendWeb do
       use Phoenix.Controller, namespace: FrontendWeb
 
       import Plug.Conn
-      import FrontendWeb.Gettext
       alias FrontendWeb.Router.Helpers, as: Routes
     end
   end
@@ -80,7 +79,6 @@ defmodule FrontendWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import FrontendWeb.Gettext
     end
   end
 
@@ -96,7 +94,6 @@ defmodule FrontendWeb do
       import Phoenix.View
 
       import FrontendWeb.ErrorHelpers
-      import FrontendWeb.Gettext
       alias FrontendWeb.Router.Helpers, as: Routes
     end
   end
