@@ -1,0 +1,7 @@
+# Elixir Cars Example
+
+This is a simple example that showcases 
+a list of cars.
+
+- backend: A simple GraphQL API
+- frontend: A simple frontend made with LiveView
