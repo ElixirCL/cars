@@ -12,17 +12,22 @@
               </div>
             </nav>
 
-            <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-                <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
-                    <div class="pt-3 flex items-center justify-between">
-                        <p class="">Product Name</p>
-                    </div>
-                    
-                </a>
-            </div>
+            <!-- Display Makers and Cars -->
+            <%= for maker <- @makers do %>
+                <%= for car <- maker["cars"] do %>
+                <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+                    <a href="#" phx-click="show:about" phx-value-about={ car["about"] }>
+                        <img class="hover:grow hover:shadow-lg" src={ car["imageUrl"] }>
+                        <div class="pt-3 flex items-center justify-between">
+                            <p class=""><%= car["model"] %></p>
+                        </div>
+                        
+                    </a>
+                </div>
+                <% end %>
+            <% end %>
 
-            <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            <!-- <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
                     <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1508423134147-addf71308178?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
                     <div class="pt-3 flex items-center justify-between">
@@ -83,7 +88,7 @@
                         <p class="">Product Name</p>
                     </div>
                 </a>
-            </div>
+            </div> -->
 
             </div>
 
@@ -97,11 +102,9 @@
 			About
 		</a>
 
-            <p class="mt-8 mb-8">This template is inspired by the stunning nordic minamalist design - in particular:
-                <br>
-                <a class="text-gray-800 underline hover:text-gray-900" href="http://savoy.nordicmade.com/" target="_blank">Savoy Theme</a> created by <a class="text-gray-800 underline hover:text-gray-900" href="https://nordicmade.com/">https://nordicmade.com/</a> and <a class="text-gray-800 underline hover:text-gray-900" href="https://www.metricdesign.no/" target="_blank">https://www.metricdesign.no/</a></p>
-
-            <p class="mb-8">Lorem ipsum dolor sit amet, consectetur <a href="#">random link</a> adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Vitae aliquet nec ullamcorper sit. Nullam eget felis eget nunc lobortis mattis aliquam. In est ante in nibh mauris. Egestas congue quisque egestas diam in. Facilisi nullam vehicula ipsum a arcu. Nec nam aliquam sem et tortor consequat. Eget mi proin sed libero enim sed faucibus turpis in. Hac habitasse platea dictumst quisque. In aliquam sem fringilla ut. Gravida rutrum quisque non tellus orci ac auctor augue mauris. Accumsan lacus vel facilisis volutpat est velit egestas dui id. At tempor commodo ullamcorper a. Volutpat commodo sed egestas egestas fringilla. Vitae congue eu consequat ac.</p>
+            <p class="mt-8 mb-8">
+                <%= @about %>
+            </p>
 
         </div>
 
