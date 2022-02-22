@@ -1,14 +1,5 @@
 import Config
 
-# Configure your database
-config :frontend, Frontend.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "frontend_dev",
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
-
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -22,7 +13,7 @@ config :frontend, FrontendWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "SwX3/3+NfTJhyk3ecGHC38w8gcAOzDR15XF8TJ8QCD2eWF3IsT2JAHQ+TuFe+/NS",
+  secret_key_base: "oxY9ZFiNexOE/ipqqUt/iwFTwIIWfHOyvlxkSYHcpdNjw1Kn9txu8tY+MTPdOldR",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
@@ -57,7 +48,6 @@ config :frontend, FrontendWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
       ~r"lib/frontend_web/(live|views)/.*(ex)$",
       ~r"lib/frontend_web/templates/.*(eex)$"
     ]

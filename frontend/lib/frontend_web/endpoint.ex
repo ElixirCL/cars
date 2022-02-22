@@ -7,7 +7,7 @@ defmodule FrontendWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_frontend_key",
-    signing_salt: "6vTuCBF/"
+    signing_salt: "ZlO2TMgU"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -28,12 +28,7 @@ defmodule FrontendWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :frontend
   end
-
-  plug Phoenix.LiveDashboard.RequestLogger,
-    param_key: "request_logger",
-    cookie_key: "request_logger"
 
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
