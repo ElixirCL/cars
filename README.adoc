@@ -1,7 +1,72 @@
-# Elixir Cars Example
+:ext-relative:
+:toc: macro
+:toclevels: 3
 
-This is a simple example that showcases 
-a list of cars.
+++++
+  <h1 align="center">Elixir Cars Example</h1>
+++++
 
-- backend: A simple GraphQL API
-- frontend: A simple frontend made with LiveView
+image:https://user-images.githubusercontent.com/292738/155880591-2bca95f4-9c83-46e3-af13-96d8e072b3bf.png[Cars]
+
+https://ninjas.cl[image:https://img.shields.io/badge/Ninjas-CL-green.svg?style=flat-square[Ninjas.cl]] https://www.mozilla.org/en-US/MPL/2.0/[image:https://img.shields.io/github/license/ninjascl/cars.svg?style=flat-square[MPL v2]]º
+
+toc::[]
+
+## 🚀 Environment setup
+
+### Requirements
+
+- https://elixir-lang.org/[Elixir]
+- https://hexdocs.pm/mix/Mix.html[Mix]
+
+
+#### Run
+
+- First run backend (`127.0.0.1:4000/graphiql`)
+- Then run frontend
+
+Command: `mix phx.server`
+
+- Go to `127.0.0.1:4001` in your browser
+
+#### Backend
+
+Ensure that you have a postgresql database running.
+
+- `postgres -D /usr/local/var/postgres`
+- `mix ecto.create`
+- `mix ecto.migrate`
+- `mix phx.server`
+
+## 👩‍💻 Project explanation
+
+This was a simple project for learning about _Elixir_ and _Phoenix LiveView_.
+Maybe is helpful for you too.
+
+## 📘 License
+
+Unless explicitily stated, all source code is under the permissive link:LICENSE.adoc{ext-relative}[MPL v2.0 (Mozilla Public License Version 2.0)] license.
+
+Is a copyleft license that is easy to comply with. You can combine the _MPL version 2.0_ software with a proprietary or differently licensed code.
+
+- If you don’t modify the code inside this library, you will have to provide just a link to the library sources.
+
+- If you modify these libs, you will have to provide just the sources for the modified files (not the entire project).
+
+### More Info
+
+- https://www.mozilla.org/en-US/MPL/2.0/[Mozila MPL 2.0]
+- https://en.wikipedia.org/wiki/Comparison_of_free_and_open-source_software_licences[OSS License Comparison]
+- https://shakuro.com/blog/software-licenses-explained/[Software Licenses Explained]
+- https://choosealicense.com/licenses/mpl-2.0/[Choose a License]
+
+## 🤩 Credits
+
+++++
+<p>
+  Made with <i class="fa fa-heart">&#9829;</i> by
+  <a href="https://ninjas.cl">
+    Ninjas.cl
+  </a>
+</p>
+++++
